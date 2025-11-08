@@ -29,28 +29,30 @@ class _MainLayoutState extends State<MainLayout> {
       appBar: const HomeScreenAppBar(),
       extendBody: false,
       body: tabs[currentIndex],
-      bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(15), topRight: Radius.circular(15)),
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.1,
-          child: BottomNavigationBar(
-            currentIndex: currentIndex,
-            onTap: (value) => changeSelectedIndex(value),
-            backgroundColor: ColorManager.primary,
-            type: BottomNavigationBarType.fixed,
-            selectedItemColor: ColorManager.primary,
-            unselectedItemColor: ColorManager.white,
-            showSelectedLabels: false, // Hide selected item labels
-            showUnselectedLabels: false, // Hide unselected item labels
-            items: [
-              // Build BottomNavigationBarItem widgets for each tab
-              CustomBottomNavBarItem(IconsAssets.icHome, "Home"),
-              CustomBottomNavBarItem(IconsAssets.icCategory, "Category"),
-              CustomBottomNavBarItem(IconsAssets.icWithList, "WishList"),
-              CustomBottomNavBarItem(IconsAssets.icProfile, "Profile"),
-            ],
-          ),
+      bottomNavigationBar: Container(
+        height: 80,
+        padding: EdgeInsets.only(top: 10),
+        margin: EdgeInsets.only(bottom: 30, left: 10, right: 10),
+        decoration: BoxDecoration(
+            color: Colors.blue, borderRadius: BorderRadius.circular(25)),
+        child: BottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: (value) => changeSelectedIndex(value),
+          backgroundColor: Colors.transparent,
+          type: BottomNavigationBarType.fixed,
+          elevation: 0,
+          selectedFontSize: 1,
+          selectedItemColor: ColorManager.primary,
+          unselectedItemColor: ColorManager.white,
+          showSelectedLabels: false, // Hide selected item labels
+          showUnselectedLabels: false, // Hide unselected item labels
+          items: [
+            // Build BottomNavigationBarItem widgets for each tab
+            CustomBottomNavBarItem(IconsAssets.icHome, "Home"),
+            CustomBottomNavBarItem(IconsAssets.icCategory, "Category"),
+            CustomBottomNavBarItem(IconsAssets.icWithList, "WishList"),
+            CustomBottomNavBarItem(IconsAssets.icProfile, "Profile"),
+          ],
         ),
       ),
     );

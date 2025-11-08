@@ -19,11 +19,18 @@ dependencies:
   flutter_native_splash:
   readmore:
   smooth_page_indicator:
+  dio:
+  flutter_bloc:
+  injectable:
+  get_it:
+  pretty_dio_logger: ^1.4.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints:
+  injectable_generator:
+  build_runner:
 
 flutter:
   generate: true
