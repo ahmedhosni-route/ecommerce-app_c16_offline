@@ -27,6 +27,7 @@ class BuildTextField extends StatefulWidget {
     this.validation,
     this.onTap,
     this.maxLines,
+    this.maxNumber,
     this.prefixIcon, this.borderBackgroundColor, this.suffixIcon,
   });
 
@@ -45,6 +46,7 @@ class BuildTextField extends StatefulWidget {
   final Color? cursorColor;
   final bool readOnly;
   final int? maxLines;
+  final int? maxNumber;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final String? Function(String?)? validation;
@@ -85,6 +87,8 @@ class _BuildTextFieldState extends State<BuildTextField> {
           ),
           clipBehavior: Clip.antiAliasWithSaveLayer,
           child: TextFormField(
+
+            maxLength:widget.maxNumber ,
             maxLines: widget.maxLines ?? 1,
             controller: widget.controller,
             focusNode: widget.focusNode,
@@ -118,6 +122,9 @@ class _BuildTextFieldState extends State<BuildTextField> {
               return errorText;
             },
             decoration: InputDecoration(
+
+              helperText: "",
+              helperStyle: TextStyle(fontSize: 1),
               contentPadding: const EdgeInsets.all(AppPadding.p12),
               hintText: widget.hint,
               prefixIcon: widget.prefixIcon,

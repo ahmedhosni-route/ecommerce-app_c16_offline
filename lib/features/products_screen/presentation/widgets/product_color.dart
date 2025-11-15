@@ -1,29 +1,23 @@
-import 'package:ecommerce_app/core/resources/color_manager.dart';
-import 'package:ecommerce_app/core/resources/styles_manager.dart';
-import 'package:ecommerce_app/features/product_details/presentation/widgets/size_widget.dart';
+import 'package:ecommerce_app/features/products_screen/presentation/widgets/color_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProductSize extends StatefulWidget {
-  final List<int> size;
+class ProductColor extends StatefulWidget {
+  final List<Color> color;
   final void Function() onSelected;
-  const ProductSize({super.key , required this.size , required this.onSelected});
+  const ProductColor({super.key , required this.color , required this.onSelected});
 
   @override
-  State<ProductSize> createState() => _ProductSizeState();
+  State<ProductColor> createState() => _ProductColorState();
 }
 
-class _ProductSizeState extends State<ProductSize> {
+class _ProductColorState extends State<ProductColor> {
   int selected = -1;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Size',
-            style: getMediumStyle(color: ColorManager.appBarTitleColor)
-                .copyWith(fontSize: 18.sp)
-        ),
         SizedBox(height: 8.h,),
         SizedBox(
           height: 45.h,
@@ -37,14 +31,15 @@ class _ProductSizeState extends State<ProductSize> {
                   });
                   widget.onSelected.call();
                 },
-                child: SizeWidget(
+                child: ColorItem(
+                  color: widget.color[index],
                   index: index,
-                    selectedIndex: selected,
-                    sizeNumber: widget.size[index]),
+                  selectedIndex: selected,
+                ),
               );
               },
               separatorBuilder: (context , index)=>SizedBox(width: 17.w,),
-              itemCount: widget.size.length),
+              itemCount: widget.color.length),
         ),
       ],
     );

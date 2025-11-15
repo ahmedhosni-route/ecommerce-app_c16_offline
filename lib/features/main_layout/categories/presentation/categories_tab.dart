@@ -14,10 +14,10 @@ class CategoriesTab extends StatelessWidget {
           horizontal: AppPadding.p12, vertical: AppPadding.p12),
       child: Row(
         children: [
-          CategoriesList(),
-          SizedBox(
-            width: AppSize.s16,
-          ),
+          // CategoriesList(),
+          // SizedBox(
+          //   width: AppSize.s16,
+          // ),
           SubCategoriesList()
         ],
       ),

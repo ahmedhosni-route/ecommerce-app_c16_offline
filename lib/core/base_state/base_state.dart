@@ -1,4 +1,4 @@
-class BaseState<T> {
+sealed class BaseState<T> {
   T? data;
   String? error;
   BaseState({this.data, this.error});
